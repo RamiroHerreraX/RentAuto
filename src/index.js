@@ -6,7 +6,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const indexRoutes = require('./routes/index');
+//const indexRoutes = require('./routes/index');
 const loginRoutes = require('./routes/tasks');
 
 //settings
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // Routes
-app.use(indexRoutes);
+//app.use(indexRoutes);
 app.use('/api',loginRoutes);
 
 //Statics files
