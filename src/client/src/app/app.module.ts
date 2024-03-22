@@ -9,6 +9,7 @@ import { AutosComponent } from './component/autos/autos.component';
 import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
+import { AdminSucursalesComponent } from './component/admin-sucursales/admin-sucursales.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LoginComponent } from './component/login/login.component';
     LoginComponent,
     CiudadComponent,
     HomeComponent,
-    AutosComponent
+    AutosComponent,
+    AdminSucursalesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <img src="https://th.bing.com/th/id/R.93dfafb978393300b05fd1d6565400e9?rik=xp1sRahTVtpiog&pid=ImgRaw" alt="Logo" class="logo">
+      <h2>Menú Administrador</h2>
+    </div>
+    <div class="sidebar-options">
+      <ul>
+        <li><a href="#">Ubicaciones</a></li>
+        <li><a href="admin-autos">Autos</a></li>
+        <li><a href="admin-sucursales">Sucursales</a></li>
+        <li><a href="admin-recompensas">Recompensas</a></li>
+        <li><a href="#">Administrar reservaciones</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Sucursales existentes</h2>
+    <!-- Aquí se puede agregar la lógica para mostrar las sucursales existentes -->
+
+    <div class="information">
+      <!-- Filtros para búsqueda -->
+      <div class="filter">
+        <label for="filtro1">País:</label>s
+        <select id="filtro1" name="filtro1" [(ngModel)]="filtroPais">
+          <option value="0">Seleccione un país</option>
+          <!-- Opciones para países -->
+        </select>
+        
+        <label for="filtro2">Estado:</label>
+        <select id="filtro2" name="filtro2" [(ngModel)]="filtroEstado">
+          <option value="0">Seleccione un estado</option>
+          <!-- Opciones para estados -->
+        </select>
+        
+        <label for="filtro3">Ciudad:</label>
+        <select id="filtro3" name="filtro3" [(ngModel)]="filtroCiudad">
+          <option value="0">Seleccione una ciudad</option>
+          <!-- Opciones para ciudades -->
+        </select>
+      </div>
+    </div>
+
+    <h2 class="title">Agregar Sucursal</h2>
+    <form (submit)="addSucursal($event)">
+      <div class="form-group">
+        <label for="pais">País:</label>
+        <select id="pais" name="pais" [(ngModel)]="pais">
+          <option value="0">Seleccione un país</option>
+          <!-- Opciones para países -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" [(ngModel)]="estado">
+          <option value="0">Seleccione un estado</option>
+          <!-- Opciones para estados -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ciudad">Ciudad:</label>
+        <select id="ciudad" name="ciudad" [(ngModel)]="ciudad">
+          <option value="0">Seleccione una ciudad</option>
+          <!-- Opciones para ciudades -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nombreSucursal">
+      </div>
+      <div class="form-group">
+        <label for="identificacion">Identificación:</label>
+        <input type="text" id="identificacion" name="identificacion" [(ngModel)]="identificacionSucursal">
+      </div>
+      <div class="form-group">
+        <label for="url">Dirección:</label>
+        <input type="text" id="direccion" name="url" [(ngModel)]="direccion">
+      </div>
+      <button type="submit" class="btn-save">Guardar datos</button>
+    </form>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+admin-sucursales css
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: darkgray;
+    color: #1a3b47;
+  }
+  
+  .logo {
+    width: 60px; /* Ajusta el tamaño de la imagen según sea necesario */
+    margin-right: 10px; /* Espacio entre la imagen y el título */
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  .sidebar-options {
+    padding: 20px;
+  }
+  
+  .sidebar-options ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-options ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-options ul li a {
+    color: #1a3b47;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin-left: 250px; /* Ancho de la barra lateral */
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .btn-save {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-save:hover {
+    background-color: #0056b3;
+  }
+  
+  .information {
+    margin-top: 40px;
+  }
+  
+  .information p {
+    margin-bottom: 10px;
+  }
+  
