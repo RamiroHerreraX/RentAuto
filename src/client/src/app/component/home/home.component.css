@@ -1,0 +1,543 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;  
+  }
+  body{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .navbar {
+    position: relative;
+    z-index: 100;
+}
+  .container{
+      max-width: 1150px;
+      margin: 0 auto;
+      min-height: 19vh;
+
+  }
+  
+  .header {
+    background-image: linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.7)),
+        url(../../../assets/menu.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 83vh;
+    display: flex;
+    align-items: center;
+    background-attachment: fixed; 
+    
+}
+
+
+
+  .coffee .coffee-img,
+.coffee .coffee-1 img {
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* Ajusta el valor según sea necesario */
+    max-height: 150px; /* Ajusta el valor según sea necesario */
+}
+.coffee .coffee-img,
+.coffee .coffee-2 img {
+    width: 100%;
+    height: auto;
+    max-width: 144px; /* Ajusta el valor según sea necesario */
+    max-height: 150px; /* Ajusta el valor según sea necesario */
+}
+
+  .menu{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  .logo{
+      color: #fcfdff;
+      font-size: 25px;
+      font-weight: 800;
+  }
+  
+  .menu .navbar ul li{
+      position: relative;
+      float: left;
+  }
+  
+  .menu .navbar ul li a{
+      font-size: 10px;
+      padding: 20px;
+      color: #FFFDFC;
+      display: block;
+      font-weight: 600;
+  }
+  
+  #menu {
+      display: none;
+  }
+  
+  .menu-icono{
+      width: 25px;
+  }
+  
+  .menu label{
+      cursor: pointer;
+      display: none;
+  }
+  
+  .header-content{
+      text-align: center;
+  }
+  
+  .header-content h1{
+      font-size: 75px;
+      line-height: 80px;
+      color: #F9FAFC;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+  }
+  
+  .header-content p{
+      font-size: 16px;
+      color: #C5C5C5;
+      padding: 0 250px;
+      margin-bottom: 25px;
+  }
+  
+  .btn-1{
+    display: inline-block;
+    padding: 7px 10px;
+    background-color: #573b8a;
+    color: #F9FAFC;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  
+  .btn-1:hover{
+      background-color: #9280b4;
+  }
+  
+  .coffee{
+      padding: 100px 0;
+      position: relative;
+  }
+  
+  .coffee-content{
+      text-align: center;
+  }
+  
+  .coffee-content h2{
+      font-size: 55px;
+      line-height: 70px;
+      color: #000000;
+      text-transform: uppercase;
+      padding: 0 250px;
+      margin-bottom: 15px;
+  }
+  
+  .txt-p{
+      font-size: 16px;
+      color: #000000;
+      padding: 0 250px;
+      margin-bottom: 35px;
+  }
+  
+  .Reserva{
+    background-color: #573b8a;
+  }
+
+  .Reserva h2{
+    color: #F9FAFC;
+    text-align: center; /* Alinea el texto del h2 al centro */
+}
+  .coffee-group{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+  }
+  .coffee-l{
+      padding: 25px;
+  }
+  
+  .coffee-1 img{
+      width: 200px;
+  }
+  .coffee {
+    background-attachment: fixed;
+    background-position: center center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+}
+
+.coffee-content {
+    position: relative;
+    z-index: 1; /* Asegúrate de que el contenido esté por encima de la imagen de fondo */
+}
+
+  .coffee-img{
+      position:absolute;
+      top: 0;
+      right: 0;
+  }
+  
+  .coffee-1 h3{
+  color: #000000;
+  font-size: 25px;
+  margin-bottom: 15px;
+  }
+  .coffee-1 p{
+    color: #000000;
+    }
+
+    .coffee-2 p{
+        color: #000000;
+        }
+        
+  .coffee-2 h3{
+    color: #000000;
+    font-size: 25px;
+    margin-bottom: 15px;
+    }
+    .services h2{
+        text-align: center;
+    }
+  .services{
+    color: aliceblue;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 100px 0;
+  }
+  
+  .services-content{
+  text-align: center;
+  }
+  
+  .services-content h2{
+      font-size: 55px;
+      line-height: 70px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+  }
+  
+  .services-content p{
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 50px;
+      padding: 0 100px;
+  }
+  
+  .services-group{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+  }
+  
+  .services-1{
+      padding: 0 100px;
+  }
+  
+  .services-1 img{
+      width: 25px;
+      margin-bottom: 15px;
+  }
+  
+  .services-1 h3{
+      color:#323337 ;
+      font-size: 18px;
+  }
+  
+  .general{
+   display: flex;   
+  }
+  
+  .general-1{
+      width: 50%;
+      padding: 100px 250px 100px 100px;
+      background-color: #ffffff;
+  }
+  
+  
+  
+  
+  h2{
+      font-size: 55px;
+      line-height: 80px;
+      color: #323337;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+  }
+  
+  p{
+      font-size: 16px;
+      color: #323337;
+      margin: 25px 0 45px 0;
+  }
+  
+  .blog {
+      padding: 100px 0;
+      text-align: center;
+  }
+  
+  .blog-content{
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .blog-1{
+      padding: 15px 55px;
+  }
+  
+  .blog-1 img{
+      width: 250px;
+      border-radius: 15px;
+      border-bottom: 15px;
+  }
+  
+  .blog-1 h3{
+      font-size: 25px;
+      color: #323337;
+  }
+  
+  .footer{
+      padding: 100px 0;
+      background-color: #000000;
+  }
+  
+  .footer-content{
+      display: flex;
+      justify-content: space-between;
+  }
+  link h3{
+      font-size: 18px;
+      color: #F9FAFC;
+      margin-bottom: 15px;
+  }
+  
+  .link a{
+      font-size: 16px;
+      color: #C5C5C5;
+      display: block;
+      margin-bottom: 15px;
+  }
+  
+  @media(max-width:991px){
+      .menu{
+          padding: 30px;
+      }
+  
+      .menu label{
+          display: initial;
+      }
+  
+      .menu .navbar{
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: #323337;
+          display: none;
+      }
+  
+      .menu .navbar ul li{
+          width: 100%;
+      }
+  
+      #menu:checked ~ .navbar{
+          display: initial;
+      }
+  
+      .header{
+          min-height: 0vh;
+      }
+      .header-content{
+          padding: 100px 30px;
+      }
+  
+      .header-content p{
+          padding: 0;
+      }
+  
+      .coffee{
+          padding: 30px;
+      }
+  
+      .coffee-content h2{
+          padding: 0;
+      }
+  
+      .txt-p{
+          padding: 0;
+      }
+  
+      .coffee-group{
+          flex-direction: column;
+          margin-bottom: 0;
+      }
+  
+      .coffee-img{
+          display: none;
+      }
+  
+      .services{
+          padding: 30px;
+      }
+  
+      .services-group{
+          flex-direction: column;
+          margin-bottom: 0;
+      }
+  
+      .services-1{
+          margin-bottom: 25px;
+      }
+  
+      .general{
+          flex-direction: column;
+      }
+  
+      .general-1{
+          width: 100%;
+          padding: 30px;
+          text-align: center;
+      }
+  
+      .general-2, .general-3{
+          display: none;
+      }
+  
+      .blog{
+          padding: 30px;
+      }
+  
+      .blog-content{
+          flex-direction: column;
+      }
+  
+      .blog-1{
+          padding: 0;
+      }
+      .footer{
+          padding: 30px;
+      }
+  
+      .footer-content{
+          flex-direction: column;
+          text-align: center;
+      }
+  }
+  
+  .ofert{
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ofert-1{
+    display: flex;
+    align-items: center;
+    flex-basis: calc(33.3% - 15px);
+    background-color: #F9FAFC;
+    padding: 35px;
+  }
+
+  .ofert-img{
+    flex-basis: 50%;
+    margin-right: 15px;
+  }
+
+  .ofert-img img{
+    width: 250px;
+  }
+
+  .ofert-txt{
+    flex-basis: 50%;
+    text-align: center;
+  }
+
+  .ofert-txt h3{
+    color: #111111;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .btn-2{
+    display: inline-block;
+    padding: 7px 10px;
+    background-color: #573b8a;
+    color: #F9FAFC;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .btn-2:hover{
+    background-color: #9280b4;
+}
+
+  .products{
+    padding: 50px 0;
+    text-align: center;
+  }
+
+  .products .peque{
+    color: #111111;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-weight: 800;
+  }
+
+  .product-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+
+  .product{
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 0 30px  rgba(146, 128, 180, 0.686)
+    ;
+  }
+
+  .product img{
+    width: 250px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .product .peque{
+    font-size: 20px;
+    color: #111111;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .product p, .precio{
+    font-size: 16px;
+    color: #111111;
+    margin-bottom: 15px;
+  }
+
+  .precio{
+    font-weight: 800;
+  }
+
+ 
+
+  
+  
+  
