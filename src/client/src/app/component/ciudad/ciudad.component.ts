@@ -18,7 +18,7 @@ export class CiudadComponent implements OnInit {
   paises: Paises[] = [];
   estados: Estados[] = [];
   ciudades: Ciudades[] = [];
-  pais: string = '';
+  pais: String = '';
   pais2: string = '';
   ordenAscendente: boolean = true; // Variable para controlar el orden ascendente o descendente
   ciudad: string = ''; // Propiedad para la ciudad
@@ -54,17 +54,57 @@ export class CiudadComponent implements OnInit {
       });
   }
 
-  //pais
+  updatingCountry: boolean = false;
+  countryToUpdate: Paises | null = null; // Variable para almacenar el país que se está actualizando
+
+  // Método para cargar el país seleccionado para actualizar
+  cargarPaisSeleccionado(pais: Paises) {
+    this.updatingCountry = true;
+    this.countryToUpdate = pais;
+    this.pais = pais.nombrePais;
+  }
+
+  // Método para cancelar la actualización del país
+  cancelarActualizacionPais() {
+    this.updatingCountry = false;
+    this.pais = '';
+    this.countryToUpdate = null;
+  }
+
+  // Método para agregar o actualizar el país
   addPais(event: { preventDefault: () => void; }): void {
     event.preventDefault();
-    const newPais: Paises = {
-      nombrePais: this.pais
-    };
-    this.paisesService.addPais(newPais)
-      .subscribe(pais => {
-        this.paises.push(pais);
-        this.pais = '';
-      });
+    if (this.updatingCountry) {
+      // Lógica para actualizar el país
+      if (this.countryToUpdate) {
+        const updatedCountry: Paises = {
+          _id: this.countryToUpdate._id,
+          nombrePais: this.pais
+        };
+        this.paisesService.updatePais(updatedCountry).subscribe(
+          () => {
+            console.log('País actualizado correctamente');
+            this.cancelarActualizacionPais(); // Restablecer el estado de actualización después de la actualización exitosa
+            // Actualizar la lista de países después de la actualización exitosa
+            this.loadPaises();
+          },
+          error => {
+            console.error('Error al actualizar el país:', error);
+            // Aquí puedes manejar el error de actualización si es necesario
+          }
+        );
+      }
+    } else {
+      // Lógica para agregar un nuevo país
+      const newCountry: Paises = {
+        nombrePais: this.pais
+      };
+      this.paisesService.addPais(newCountry)
+        .subscribe(pais => {
+          this.paises.push(pais); // Asumiendo que tienes una lista llamada paises donde se almacenan los países
+          this.pais = ''; // Limpiar el campo de entrada después de agregar el país
+        });
+    }
   }
 
   deletePais(id: string): void {
@@ -126,16 +166,62 @@ export class CiudadComponent implements OnInit {
     this.mostrarFormularioEstado = !this.mostrarFormularioEstado;
   }
 
-  //estado
+  updatingState: boolean = false;
+  estadoToUpdate: Estados | null = null; // Variable para almacenar el estado que se está actualizando
+
+  // Método para cargar el estado seleccionado para actualizar
+  cargarEstadoSeleccionado(estado: Estados) {
+    this.updatingState = true;
+    this.estadoToUpdate = estado;
+    this.estado = estado.nombreEstado;
+    this.pais2 = estado.nombrePais;
+  }
+
+  // Método para cancelar la actualización del estado
+  cancelarActualizacion() {
+    this.updatingState = false;
+    this.estado = '';
+    this.pais2 = '';
+    this.estadoToUpdate = null;
+  }
+
+  // Método para agregar o actualizar el estado
   addEstado(event: { preventDefault: () => void; }): void {
     event.preventDefault();
-    const newEstado: Estados = new Estados(this.pais2, this.estado); // Crear una nueva instancia de la clase Estados con los datos proporcionados
-    this.estadosService.addEstado(newEstado)
-      .subscribe(estado => {
-        this.estados.push(estado); // Asumiendo que tienes una lista llamada paises donde se almacenan los estados
-        this.pais2 = ''; // Limpiar el campo de entrada después de agregar el estado
-        this.estado = ''; // Limpiar el campo de entrada del estado después de agregar el estado
-      });
+    if (this.updatingState) {
+      // Lógica para actualizar el estado
+      if (this.estadoToUpdate) {
+        const updatedEstado: Estados = {
+          _id: this.estadoToUpdate._id,
+          nombreEstado: this.estado,
+          nombrePais: this.pais2
+        };
+        this.estadosService.updateEstado(updatedEstado).subscribe(
+          () => {
+            console.log('Estado actualizado correctamente');
+            this.cancelarActualizacion(); // Restablecer el estado de actualización después de la actualización exitosa
+            // Actualizar la lista de estados después de la actualización exitosa
+            this.loadEstados();
+          },
+          error => {
+            console.error('Error al actualizar el estado:', error);
+            // Aquí puedes manejar el error de actualización si es necesario
+          }
+        );
+      }
+    } else {
+      // Lógica para agregar un nuevo estado
+      const newEstado: Estados = {
+        nombrePais: this.pais2,
+        nombreEstado: this.estado
+      };
+      this.estadosService.addEstado(newEstado)
+        .subscribe(estado => {
+          this.estados.push(estado); // Asumiendo que tienes una lista llamada paises donde se almacenan los estados
+          this.pais2 = ''; // Limpiar el campo de entrada después de agregar el estado
+          this.estado = ''; // Limpiar el campo de entrada del estado después de agregar el estado
+        });
+    }
   }
 
   deleteEstado(_id: string): void {
@@ -165,25 +251,69 @@ export class CiudadComponent implements OnInit {
     );
   }
   
-  cargarEstadoSeleccionado(estado: Estados): void {
+  /*cargarEstadoSeleccionado(estado: Estados): void {
     // Asignar los valores a los campos de texto del formulario de actualización
     this.estado = estado.nombreEstado;
     this.pais2 = estado.nombrePais;
+  }*/
+  
+  updatingCity: boolean = false;
+  cityToUpdate: Ciudades | null = null; // Variable para almacenar la ciudad que se está actualizando
+  
+  // Método para cargar la ciudad seleccionada para actualizar
+  cargarCiudadSeleccionada(ciudad: Ciudades) {
+    this.updatingCity = true;
+    this.cityToUpdate = ciudad;
+    this.ciudad = ciudad.nombreCiudad;
+    this.estado2 = ciudad.nombreEstado;
   }
   
-    //Ciudades
-    addCiudad(event: { preventDefault: () => void; }): void {
-      event.preventDefault();
-      const newCiudad: Ciudades = {
+  // Método para cancelar la actualización de la ciudad
+  cancelarActualizacionCiudad() {
+    this.updatingCity = false;
+    this.ciudad = '';
+    this.estado2 = '';
+    this.cityToUpdate = null;
+  }
+  
+  // Método para agregar o actualizar una ciudad
+  addCiudad(event: { preventDefault: () => void; }): void {
+    event.preventDefault();
+    if (this.updatingCity) {
+      // Lógica para actualizar la ciudad
+      if (this.cityToUpdate) {
+        const updatedCity: Ciudades = {
+          _id: this.cityToUpdate._id,
+          nombreCiudad: this.ciudad,
+          nombreEstado: this.estado2
+        };
+        this.ciudadesService.updateCiudad(updatedCity).subscribe(
+          () => {
+            console.log('Ciudad actualizada correctamente');
+            this.cancelarActualizacionCiudad(); // Restablecer el estado de actualización después de la actualización exitosa
+            // Actualizar la lista de ciudades después de la actualización exitosa
+            this.loadCiudades();
+          },
+          error => {
+            console.error('Error al actualizar la ciudad:', error);
+            // Aquí puedes manejar el error de actualización si es necesario
+          }
+        );
+      }
+    } else {
+      // Lógica para agregar una nueva ciudad
+      const newCity: Ciudades = {
         nombreCiudad: this.ciudad,
-        nombreEstado: this.estado2 // Asignar el nombre del estado seleccionado
+        nombreEstado: this.estado2
       };
-      this.ciudadesService.addCiudad(newCiudad)
+      this.ciudadesService.addCiudad(newCity)
         .subscribe(ciudad => {
-          this.ciudades.push(ciudad); // Agregar la nueva ciudad a la lista de ciudades
+          this.ciudades.push(ciudad); // Asumiendo que tienes una lista llamada ciudades donde se almacenan las ciudades
           this.ciudad = ''; // Limpiar el campo de entrada después de agregar la ciudad
         });
     }
+  }
+  
 
     deleteCiudad(_id: string): void {
       this.ciudadesService.deleteCiudad(_id)

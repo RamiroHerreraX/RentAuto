@@ -6,21 +6,33 @@
   <title>Admin Panel</title>
 </head>
 <body>
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <img src="https://th.bing.com/th/id/R.93dfafb978393300b05fd1d6565400e9?rik=xp1sRahTVtpiog&pid=ImgRaw" alt="Logo" class="logo">
-      <h2>Menú Administrador</h2>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">Rent-a-Car</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/autos">Autos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="sidebar-options">
-      <ul>
-        <li><a href="#">Ubicaciones</a></li>
-        <li><a href="admin-autos">Autos</a></li>
-        <li><a href="admin-sucursales">Sucursales</a></li>
-        <li><a href="admin-recompensas">Recompensas</a></li>
-        <li><a href="#">Administrar reservaciones</a></li>
-      </ul>
-    </div>
-  </div>
+  </nav>
 
   <div class="container">
     <h2>Sucursales existentes</h2>
@@ -29,22 +41,27 @@
     <div class="information">
       <!-- Filtros para búsqueda -->
       <div class="filter">
-        <label for="filtro1">País:</label>s
+        <label for="filtro1">País:</label>
         <select id="filtro1" name="filtro1" [(ngModel)]="filtroPais">
           <option value="0">Seleccione un país</option>
           <!-- Opciones para países -->
+          <option *ngFor="let pais of paises" [value]="pais.nombrePais">{{ pais.nombrePais }}</option>
         </select>
         
         <label for="filtro2">Estado:</label>
         <select id="filtro2" name="filtro2" [(ngModel)]="filtroEstado">
           <option value="0">Seleccione un estado</option>
           <!-- Opciones para estados -->
+          <option *ngFor="let estado of estados" [value]="estado.nombreEstado">{{ estado.nombreEstado }}</option>
         </select>
         
         <label for="filtro3">Ciudad:</label>
         <select id="filtro3" name="filtro3" [(ngModel)]="filtroCiudad">
           <option value="0">Seleccione una ciudad</option>
           <!-- Opciones para ciudades -->
+          <option *ngFor="let ciudad of ciudades" [value]="ciudad.nombreCiudad">
+            {{ ciudad.nombreCiudad }}
+          </option>
         </select>
       </div>
     </div>
@@ -56,6 +73,7 @@
         <select id="pais" name="pais" [(ngModel)]="pais">
           <option value="0">Seleccione un país</option>
           <!-- Opciones para países -->
+          <option *ngFor="let pais of paises" [value]="pais.nombrePais">{{ pais.nombrePais }}</option>
         </select>
       </div>
       <div class="form-group">
@@ -63,6 +81,7 @@
         <select id="estado" name="estado" [(ngModel)]="estado">
           <option value="0">Seleccione un estado</option>
           <!-- Opciones para estados -->
+          <option *ngFor="let estado of estados" [value]="estado.nombreEstado">{{ estado.nombreEstado }}</option>
         </select>
       </div>
       <div class="form-group">
@@ -70,6 +89,7 @@
         <select id="ciudad" name="ciudad" [(ngModel)]="ciudad">
           <option value="0">Seleccione una ciudad</option>
           <!-- Opciones para ciudades -->
+          <option *ngFor="let ciudad of ciudades" [value]="ciudad.nombreCiudad">{{ ciudad.nombreCiudad }}</option>
         </select>
       </div>
 
@@ -90,4 +110,3 @@
   </div>
 </body>
 </html>
-

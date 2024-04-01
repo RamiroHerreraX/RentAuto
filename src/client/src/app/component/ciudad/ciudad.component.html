@@ -1,21 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="#">Rent-a-Car</a>
+        <a class="navbar-brand" routerLink="/">Rent-a-Car</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/autos">Autos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
+
+
 <br>
 <div class="container form-control">
     <div class="container ">
@@ -58,6 +70,9 @@
                                 <tr *ngFor="let pais of paises">
                                     <td>{{ pais.nombrePais }}</td>
                                     <td>
+                                        <button class="btn btn-info btn-sm" (click)="cargarPaisSeleccionado(pais)">
+                                            <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
+                                        </button>
                                         <button class="btn btn-danger" (click)="deletePais(pais._id ? pais._id.toString() : '')">
                                             <img src="assets/eliminar.png" alt="Eliminar" width="25px">
                                             Eliminar
@@ -133,12 +148,13 @@
                                 <td>{{ estado.nombrePais }}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm" (click)="cargarEstadoSeleccionado(estado)">
-                                        <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> actualizar
+                                        <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
                                     </button>
                                     <button class="btn btn-danger btn-sm" (click)="deleteEstado(estado._id ? estado._id.toString() : '')">
-                                        <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> eliminar
+                                        <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> Eliminar
                                     </button>
                                 </td>
+                                
                             </tr>
                             </tbody>
                         </table>
@@ -203,12 +219,11 @@
                                     <td>{{ ciudad.nombreCiudad }}</td>
                                     <td>{{ ciudad.nombreEstado }}</td>
                                     <td>
-                                        <button class="btn btn-info">
-                                            <img src="assets/actualizar.png" alt="Acualizar" width="24px">
+                                        <button class="btn btn-info btn-sm" (click)="cargarCiudadSeleccionada(ciudad)">
+                                            <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
                                         </button>
-                                        <button class="btn btn-danger" (click)="deleteCiudad(ciudad._id ? ciudad._id.toString() : '')">
-                                            <img src="assets/" alt="Eliminar" width="24px">
-                                            Eliminar
+                                        <button class="btn btn-danger btn-sm" (click)="deleteCiudad(ciudad._id ? ciudad._id.toString() : '')">
+                                            <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> Eliminar
                                         </button>
                                     </td>
                                 </tr>

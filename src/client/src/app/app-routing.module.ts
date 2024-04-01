@@ -4,6 +4,7 @@ import { AutosComponent } from './component/autos/autos.component';
 import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { HomeComponent } from './component/home/home.component';
 import { AdminSucursalesComponent } from './component/admin-sucursales/admin-sucursales.component';
+import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path : 'sucursal',
     component : AdminSucursalesComponent
+  },
+  {
+    path : 'login',
+    component : LoginComponent
   }
 ];
 
