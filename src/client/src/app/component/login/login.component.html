@@ -5,62 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Inicio de Sesión</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .login-container {
-      max-width: 400px;
-      padding: 20px;
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .login-container h2 {
-      margin-bottom: 20px;
-    }
-
-    .login-container input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .login-container button {
-      width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .login-container button:hover {
-      background-color: #0056b3;
-    }
-
-    .register-button {
-      display: block;
-      margin-top: 20px;
-      text-decoration: none;
-      color: #007bff;
-    }
-
-    .register-button:hover {
-      color: #0056b3;
-    }
-  </style>
 </head>
 <body>
+  <!-- Aquí se incluye la navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">Rent-a-Car</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/autos">Autos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
   <div class="container">
     <div class="login-container">
       <h2>Inicia sesión con tu usuario y contraseña</h2>
@@ -75,7 +50,7 @@
           <button type="submit">Iniciar sesión <i class="fas fa-sign-in-alt"></i></button>
         </div>
       </form>
-      <a href="home/crea_cuenta" class="register-button">¿No tienes una cuenta? Regístrate</a>
+      <a href="home/#" class="register-button">¿No tienes una cuenta? Regístrate</a>
     </div>
   </div>
 </body>

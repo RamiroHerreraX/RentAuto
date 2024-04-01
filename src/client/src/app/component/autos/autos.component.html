@@ -25,3 +25,64 @@
         </div>
     </div>
 </nav>
+
+  
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+  
+      <div class="title">
+        <h3>Catalogo de Autos</h3>
+      </div>
+  
+      <div class="search-box">
+        <div class="search-container">
+          <p>Buscar autos por: </p>
+          <div class="dropdown">
+            <button class="dropbtn">Seleccionar Categoría</button>
+            <div class="dropdown-content">
+              <button class="category-btn" (click)="filtrarPorCategoria('Económico')">Económico</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('Estándar')">Estándar</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('SUV')">SUV/Todo Terreno</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('Pick-up')">Camionetas</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('Deportivo')">Deportivo</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('Lujoso')">Lujoso</button>
+              <button class="category-btn" (click)="filtrarPorCategoria('Convertible')">Convertible</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let auto of autosFiltrados">
+        </div>
+      </div>
+      
+      
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let auto of autosFiltrados">
+          <div class="card shadow-sm">
+            <img [src]="auto.imagen" class="card-img-top" alt="Imagen de auto">
+            <div class="card-body">
+              <h3 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h3>
+              <h6 class="card-subtitle mb-2 text-muted">Modelo: {{ auto.anio }}</h6>
+              <div class="car-info">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p><i class="fas fa-user"></i> <strong>Asientos:</strong> {{ auto }}</p>
+                    <p><i class="fas fa-suitcase"></i> <strong>Maletas:</strong> {{ auto }}</p>
+                    <p><i class="fas fa-cogs"></i> <strong>Tipo de Caja:</strong> {{ auto }}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- <p><i class="fas fa-snowflake"></i> <strong>Aire Acondicionado:</strong> {{ auto.aireAcondicionado }}</p> -->
+                    <p><i class="fas fa-car"></i> <strong>Placas:</strong> {{ auto }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-3">
+                <a href="/user" class="btn btn-danger btn-lg"><i class="fas fa-book"></i> Reservar Auto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
