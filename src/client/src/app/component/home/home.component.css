@@ -1,6 +1,4 @@
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;  
@@ -8,15 +6,18 @@
   body{
       font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
-  
+
+
+
+
   .navbar {
     position: relative;
-    z-index: 100;
+    z-index: 100;   
 }
   .container{
       max-width: 1150px;
       margin: 0 auto;
-      min-height: 19vh;
+      min-height: 28vh;
 
   }
   
@@ -28,7 +29,7 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 65vh;
+    min-height: 78vh;
     display: flex;
     align-items: center;
     background-attachment: fixed; 
