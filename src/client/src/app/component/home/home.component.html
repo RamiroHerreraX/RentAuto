@@ -47,18 +47,25 @@
 </div>
 <div class="services">
 
-    <div id="opciones">
-      <label for="opcion">Selecciona una opción:</label>
-      <select id="opcion">
-        <option value="opcion1">Opción 1</option>
-        <option value="opcion2">Opción 2</option>
-        <option value="opcion3">Opción 3</option>
-      </select>
-    
-
-
-        <a href="#" class="btn-1">Reserva</a>
+    <div id="opciones" class="opciones-container">
+        <div class="columna">
+            <label for="opcion">Entrega y devolución</label>
+            <select id="opcion">
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+        </div>
+        <div class="columna">
+            <label for="hora_entrega">Hora de entrega:</label>
+            <input type="time" id="hora_entrega" name="hora_entrega">
+            <label for="hora_devolucion">Hora de devolución:</label>
+            <input type="time" id="hora_devolucion" name="hora_devolucion">
+        </div>
+        <a href="#" class="btn-11">Reservar</a>
     </div>
+    
+      
 </div>
 
 
