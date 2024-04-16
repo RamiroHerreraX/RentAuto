@@ -1,9 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/">Rent-a-Car</a>
+        <!-- Imagen ajustada y colocada a la izquierda -->
+        <img src="assets/LogoP.png" alt="Logo Indra" style="width: 150px; height: auto; margin-right: 0px;">
+        <!-- Palabra "Indra" con tipografía diferente y en mayúsculas -->
+        <a class="navbar-brand" routerLink="/">
+            <span style="font-family: Arial, sans-serif; text-transform: uppercase;">INDRA</span>
+        </a>
+        <!-- Línea divisora mediante un div con un estilo específico -->
+        <div class="divider"></div>
+        <!-- Botón del toggler -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Contenido de la barra de navegación -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -13,76 +22,155 @@
                     <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" routerLink="/modelos">Modelos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" routerLink="/autos">Autos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Login</a>
-                </li>
             </ul>
+            <!-- Botón de login movido a la esquina derecha -->
+            <button class="btn btn-outline-light" (click)="login()" type="button">Login</button>
         </div>
     </div>
 </nav>
 
-  
-  <div class="album py-5 bg-body-tertiary">
-    <div class="container">
-  
-      <div class="title">
-        <h3>Catalogo de Autos</h3>
-      </div>
-  
-      <div class="search-box">
-        <div class="search-container">
-          <p>Buscar autos por: </p>
-          <div class="dropdown">
-            <button class="dropbtn">Seleccionar Categoría</button>
-            <div class="dropdown-content">
-              <button class="category-btn" (click)="filtrarPorCategoria('Económico')">Económico</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('Estándar')">Estándar</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('SUV')">SUV/Todo Terreno</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('Pick-up')">Camionetas</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('Deportivo')">Deportivo</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('Lujoso')">Lujoso</button>
-              <button class="category-btn" (click)="filtrarPorCategoria('Convertible')">Convertible</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" *ngFor="let auto of autosFiltrados">
-        </div>
-      </div>
-      
-      
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" *ngFor="let auto of autosFiltrados">
-          <div class="card shadow-sm">
-            <img [src]="auto.imagen" class="card-img-top" alt="Imagen de auto">
-            <div class="card-body">
-              <h3 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h3>
-              <h6 class="card-subtitle mb-2 text-muted">Modelo: {{ auto.anio }}</h6>
-              <div class="car-info">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <p><i class="fas fa-user"></i> <strong>Asientos:</strong> {{ auto }}</p>
-                    <p><i class="fas fa-suitcase"></i> <strong>Maletas:</strong> {{ auto }}</p>
-                    <p><i class="fas fa-cogs"></i> <strong>Tipo de Caja:</strong> {{ auto }}</p>
-                  </div>
-                  <div class="col-sm-6">
-                    <!-- <p><i class="fas fa-snowflake"></i> <strong>Aire Acondicionado:</strong> {{ auto.aireAcondicionado }}</p> -->
-                    <p><i class="fas fa-car"></i> <strong>Placas:</strong> {{ auto }}</p>
-                  </div>
+<br>
+<div class="container form-control">
+    <div class="form-control col-md-4 tr" style="background-color: ghostwhite;">
+        <h1 class="text-center">Vehículos</h1>
+        <form class="col-md-4">
+            <div class="row container">
+                <div class="row l">
+                    <label for="imagen" class="form-label col-md-9">Ingresa la url de la imagen:</label>
+                <input type="text" class="form-control col-md-9" id="imagen" name="imagen" [(ngModel)]="imagen" required>
+
+                <label for="tipoAuto" class="form-label col-md-6">Ingresa el tipo de auto:</label>
+                <select class="form-control" id="tipoAuto" name="tipoAuto" [(ngModel)]="tipoAuto" required>
+                    <option value="">Selecciona el tipo de vehiculo</option>
+                    <option value="ECONOMY CAR">ECONOMY CAR</option>
+                    <option value="COMPACT CAR">COMPACT CAR</option>
+                    <option value="INTERMEDIATE CAR">INTERMEDIATE CAR</option>
+                    <option value="STANDARD CAR">STANDARD CAR</option>
+                    <option value="FULLSIZE CAR">FULLSIZE CAR</option>
+                    <option value="PREMIUM CAR">PREMIUM CAR</option>
+                    <option value="STANDARD SUV CAR">STANDARD SUV CAR</option>
+                </select>
+                
+                <label for="nSerie" class="form-label">Ingresa el numero de serie del auto:</label>
+                <input type="text" class="form-control" id="nSerie" name="nSerie" [(ngModel)]="nSerie" required>
+                
+                <label for="marca" class="form-label">Marca:</label>
+<select class="form-select" id="marca" name="marca" [(ngModel)]="marca" required (change)="filtrarModelosPorMarca()">
+    <option value="">Selecciona la marca</option>
+    <option *ngFor="let mar of marcas" [value]="mar.marca">{{ mar.marca }}</option>
+</select>
+
+<label for="mod" class="form-label">Modelo:</label>
+<select class="form-select" id="model" name="mod" [(ngModel)]="mod" required>
+    <option value="">Selecciona el modelo</option>
+    <option *ngFor="let mod2 of modelosFiltrados" [value]="mod2.modelo">{{ mod2.modelo }}</option>
+</select>
+
+
                 </div>
-              </div>
-              <div class="text-center mt-3">
-                <a href="/user" class="btn btn-danger btn-lg"><i class="fas fa-book"></i> Reservar Auto</a>
-              </div>
+                
+
+                <label for="sucursalUbicacion" class="form-label">Selecciona el nombre de la sucursal:</label>
+                <div *ngFor="let sucursal of sucursalUbicacion; let i = index" class="input-group mb-3">
+                    <select class="form-select" [(ngModel)]="sucursalUbicacion[i]" name="sucursal" required>
+                        <option value="">Selecciona la sucursal</option>
+                        <option *ngFor="let sucursal of sucursales" [value]="sucursal.nombreSucursal">{{sucursal.nombreSucursal}}</option>
+                    </select>
+                    <button class="btn btn-outline-danger" type="button" (click)="removeSucursal(i)">Eliminar</button>
+                </div>
+
+                <button class="btn btn-primary" type="button" (click)="addSucursal()">Agregar Sucursal</button>
+
             </div>
-          </div>
+
+            <div>
+                <label for="nAsientos" class="form-label">Ingresa el numero de asientos:</label>
+                <select class="form-select" id="nAsientos" name="nAsientos" [(ngModel)]="nAsientos" required>
+                    <option value="">Todos el numero de nAsientos</option>
+                    <option [value]="2">2</option>
+                    <option [value]="4">4</option>
+                    <option [value]="6">6</option>
+                    <option [value]="8">8</option>
+                    <option [value]="10">10</option>
+                </select>
+                
+                <label for="tamMaletero" class="form-label">Ingresa el tamaño del maletero:</label>
+                <input type="text" class="form-control" id="tamMaletero" name="tamMaletero" [(ngModel)]="tamMaletero" required>
+                
+                <label for="complementos" class="form-label">Ingresa el nombre del complemento:</label>
+                <input type="text" class="form-control" id="complementos" name="complementos" [(ngModel)]="complementos" required>
+                
+                <label for="costoDia" class="form-label">Ingresa el costo:</label>
+                <input type="number" class="form-control" id="costoDia" name="costoDia" [(ngModel)]="costoDia" required>
+                
+                <label for="canDisponible" class="form-label">Ingresa la cantidad de autos disponibles:</label>
+                <input type="number" class="form-control" id="canDisponible" name="canDisponible" [(ngModel)]="canDisponible" required>
+                
+                <label for="estatus" class="form-label">Ingresa el estatus:</label>
+                <select class="form-select" id="estatus" name="estatus" [(ngModel)]="estatus" required>
+                    <option value="">Selecciona el estatus</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="No disponible">No Disponible</option>
+                </select>
+            
+            <button type="button" class="btn btn-primary" (click)="addAuto()">Agregar modelo</button>
+            </div>
+            
+
+</form>
+<br>
+        <div class="row">
+            <h3 class="text-center">Listado de vehiculos</h3>
+            <!--<div class="mb-3">
+                <label for="filtroModelo" class="form-label col-md-4">Filtrar por marca:</label>
+                <select class="form-select" id="filtroModelo" name="filtroModelo">
+                    <option value="">Todos las marcas de autos</option>
+                    <option></option>
+                </select>
+            </div> 
+            -->
         </div>
-      </div>
+
+        <div class="container row" style="background-color: ghostwhite;">
+            <div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col" *ngFor="let aut of autos">
+                        <div class="card">
+                            <img [src]="aut.imagen" class="card-img-top" alt="Imagen de auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Tipo de vehículo: {{ aut.tipoAuto }}</h5>
+                            <p class="card-text">Número de serie: {{ aut.nSerie }}</p>
+                            <p class="card-text">Marca: {{ aut.marca }}</p>
+                            <p class="card-text">Modelo: {{ aut.mod }}</p>
+                            <p class="card-text">Sucursal: {{ aut.sucursalUbicacion }} </p>
+                            <p class="card-text">Número de asientos: {{ aut.nAsientos }}</p>
+                            <p class="card-text">Complementos: {{ aut.complementos }}</p>
+                            <p class="card-text">Costo por día: {{ aut.costoDia }}</p>
+                            <p class="card-text">Cantidad disponible: {{ aut.canDisponible }}</p>
+                            <p class="card-text">Estatus: {{ aut.estatus }}</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-info" type="button" (click)="cargarAutoSeleccionado(aut)">
+                                    <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
+                                </button>
+                                <button class="btn btn-danger" type="button" (click)="deleteAuto(aut && aut._id ? aut._id.toString() : '')">
+                                    <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
       

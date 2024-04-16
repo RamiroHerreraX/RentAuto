@@ -7,6 +7,7 @@ import { PaisesService } from '../../services/paises.service';
 import { EstadosService } from '../../services/estados.service';
 import { CiudadesService } from '../../services/ciudades.service';
 import { SucursalesService } from '../../services/sucursales.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sucursales',
@@ -14,9 +15,6 @@ import { SucursalesService } from '../../services/sucursales.service';
   styleUrls: ['./admin-sucursales.component.css']
 })
 export class AdminSucursalesComponent implements OnInit {
-  mostrarFormularioPaises: boolean = false;
-  mostrarFormularioEstado: boolean = false;
-  mostrarFormularioCiudad: boolean = false;
   paises: Paises[] = [];
   estados: Estados[] = [];
   ciudades: Ciudades[] = [];
@@ -27,15 +25,13 @@ export class AdminSucursalesComponent implements OnInit {
   nombreSucursal: string = '';
   identificacionSucursal: string = '';
   direccion: string = '';
-  filtroPais: string = ''; // Agrega esta línea para definir la propiedad filtroPais
-  filtroCiudad: string = '';
-  filtroEstado: string = '';
 
   constructor(
     private paisesService: PaisesService,
     private estadosService: EstadosService,
     private ciudadesService: CiudadesService,
-    private sucursalesService: SucursalesService
+    private sucursalesService: SucursalesService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +49,7 @@ export class AdminSucursalesComponent implements OnInit {
   }
 
   loadEstados(): void {
+    // Cargar los estados inicialmente
     this.estadosService.getEstados()
       .subscribe(data => {
         this.estados = data;
@@ -60,6 +57,7 @@ export class AdminSucursalesComponent implements OnInit {
   }
 
   loadCiudades(): void {
+    // Cargar las ciudades inicialmente
     this.ciudadesService.getCiudades()
       .subscribe(data => {
         this.ciudades = data;
@@ -73,8 +71,11 @@ export class AdminSucursalesComponent implements OnInit {
       });
   }
 
-  addSucursal(event: Event): void {
-    event.preventDefault();
+  addSucursal(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
+  
     const newSucursal: Sucursales = {
       nombrePais: this.pais,
       nombreEstado: this.estado,
@@ -83,14 +84,20 @@ export class AdminSucursalesComponent implements OnInit {
       identificacionSucursal: this.identificacionSucursal,
       direccion: this.direccion
     };
-    this.sucursalesService.addSucursal(newSucursal)
-      .subscribe(sucursal => {
-        this.sucursales.push(sucursal);
-        // Limpiar campos después de agregar la sucursal
-        this.resetForm();
-      });
+  
+    this.sucursalesService.addSucursal(newSucursal).subscribe(
+      (response: Sucursales) => {
+        console.log('Sucursal agregada exitosamente');
+        this.sucursales.push(response); // Agregar la nueva sucursal a la lista
+        this.resetForm(); // Limpiar los campos del formulario
+      },
+      error => {
+        console.error('Error al agregar la sucursal:', error);
+        // Manejar error de agregación si es necesario
+      }
+    );
   }
-
+  
   resetForm(): void {
     this.pais = '';
     this.estado = '';
@@ -107,6 +114,21 @@ export class AdminSucursalesComponent implements OnInit {
       });
   }
 
-  // Implementa aquí métodos adicionales según sea necesario para la funcionalidad de la sucursal
+  onChangePais(): void {
+    // Limpiar la selección de estado y ciudad al cambiar de país
+    this.estado = '';
+    this.ciudad = '';
+    this.loadEstados();
+  }
 
+  onChangeEstado(): void {
+    // Limpiar la selección de ciudad al cambiar de estado
+    this.ciudad = '';
+    this.loadCiudades();
+  }
+
+  login() {
+    // Redirige al usuario a la página de inicio de sesión
+    this.router.navigateByUrl('/login');
+}
 }

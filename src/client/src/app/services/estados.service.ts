@@ -30,4 +30,9 @@ deleteEstado(id: string): Observable<any> {
   return this.http.delete(`${this.domain}/api/estados/${id}`)
     .pipe(map(res => res));
 }
+
+getEstadosPorPais(nombrePais: string): Observable<Estados[]> {
+  return this.http.get<Estados[]>(`${this.domain}/api/estados/${nombrePais}`)
+    .pipe(map(res => res));
+}
 }

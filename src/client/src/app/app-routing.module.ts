@@ -5,6 +5,7 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { HomeComponent } from './component/home/home.component';
 import { AdminSucursalesComponent } from './component/admin-sucursales/admin-sucursales.component';
 import { LoginComponent } from './component/login/login.component';
+import { ModelosComponent } from './component/modelos/modelos.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path : 'login',
     component : LoginComponent
+  },
+  {
+    path : 'modelos',
+    component : ModelosComponent
   }
 ];
 

@@ -32,4 +32,9 @@ export class CiudadesService {
     return this.http.delete(`${this.domain}/api/ciudades/${id}`)
       .pipe(map(res => res));
   }
+
+  getCiudadesPorEstado(nombreEstado: string): Observable<Ciudades[]> {
+    return this.http.get<Ciudades[]>(`${this.domain}/api/ciudades/${nombreEstado}`)
+      .pipe(map(res => res));
+  }
 }

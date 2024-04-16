@@ -5,6 +5,7 @@ import { CiudadesService } from '../../services/ciudades.service';
 import { EstadosService } from '../../services/estados.service';
 import { Paises } from '../../Paises';
 import { PaisesService } from '../../services/paises.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ciudad',
@@ -25,7 +26,10 @@ export class CiudadComponent implements OnInit {
   estado: string = ''; // Propiedad para el estado
   estado2: string = '';
 
-  constructor(private paisesService: PaisesService, private ciudadesService: CiudadesService, private estadosService: EstadosService) { }
+  constructor(private paisesService: PaisesService, 
+    private ciudadesService: CiudadesService, 
+    private estadosService: EstadosService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.loadPaises();
@@ -348,5 +352,10 @@ export class CiudadComponent implements OnInit {
         this.ciudadesFiltradas = this.ciudades.filter(ciudades => ciudades.nombreEstado === this.filtroEstado);
       }
     }
+
+    login() {
+      // Redirige al usuario a la página de inicio de sesión
+      this.router.navigateByUrl('/login');
+  }
 
 }

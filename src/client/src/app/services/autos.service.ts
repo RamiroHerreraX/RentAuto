@@ -1,49 +1,38 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { catchError, map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-import { Auto } from '../autos';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Autos } from '../autos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutosService {
-  private domain = 'http://localhost:3000'; 
+  domain: string = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-  getAutos() {
-    return this.http.get<Auto[]>(`${this.domain}/api/Vehiculo`).pipe(
-      map(res => res),
-      catchError(this.handleError)
-    );
+  // Obtener todos los autos
+  getAutos(): Observable<Autos[]> {
+    return this.http.get<Autos[]>(`${this.domain}/api/autos`)
+      .pipe(map(res => res));
   }
 
-  addAuto(newAuto: Auto) {
-    return this.http.post<Auto>(`${this.domain}/api/Vehiculo`, newAuto).pipe(
-      map(res => res),
-      catchError(this.handleError)
-    );
+  // Agregar un nuevo auto
+  addAuto(newAuto: Autos): Observable<any> {
+    return this.http.post<Autos>(`${this.domain}/api/autos`, newAuto)
+      .pipe(map(res => res));
   }
 
-  deleteAuto(id: string) {
-    return this.http.delete<Auto>(`${this.domain}/api/Vehiculo/${id}`).pipe(
-      map(res => res),
-      catchError(this.handleError)
-    );
+  // Actualizar un auto existente
+  updateAuto(updatedAuto: Autos): Observable<any> {
+    return this.http.put(`${this.domain}/api/autos/${updatedAuto._id}`, updatedAuto)
+      .pipe(map(res => res));
   }
-
-  updateAuto(newReserva: Auto) {
-    return this.http.put(`${this.domain}/api/Vehiculo/${newReserva._id}`, newReserva).pipe(
-      map(res => res),
-      catchError(this.handleError)
-    );
-  }
-
-  private handleError(error: any) {
-    console.error('An error occurred:', error);
-    return throwError('Something went wrong, please try again later.');
+  
+  // Eliminar un auto por su ID
+  deleteAuto(id: string): Observable<any> {
+    return this.http.delete(`${this.domain}/api/autos/${id}`)
+      .pipe(map(res => res));
   }
 }
-

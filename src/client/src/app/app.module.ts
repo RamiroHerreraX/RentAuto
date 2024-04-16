@@ -11,6 +11,7 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { AdminSucursalesComponent } from './component/admin-sucursales/admin-sucursales.component';
+import { ModelosComponent } from './component/modelos/modelos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AdminSucursalesComponent } from './component/admin-sucursales/admin-suc
     CiudadComponent,
     HomeComponent,
     AutosComponent,
-    AdminSucursalesComponent
+    AdminSucursalesComponent,
+    ModelosComponent
   ],
   imports: [
     BrowserModule,

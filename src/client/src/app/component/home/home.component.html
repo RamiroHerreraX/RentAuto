@@ -1,20 +1,51 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Rent-a-Car</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/ubicaciones">Ciudades</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/ubicaciones">Autos</a>
-                </li>
-            </ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentAuto - Tu tienda de renta de autos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home.component.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Imagen ajustada y colocada a la izquierda -->
+            <img src="assets/LogoP.png" alt="Logo Indra" style="width: 150px; height: auto; margin-right: 0px;">
+            <!-- Palabra "Indra" con tipografía diferente y en mayúsculas -->
+            <a class="navbar-brand" routerLink="/">
+                <span style="font-family: Arial, sans-serif; text-transform: uppercase;">INDRA</span>
+            </a>
+            <!-- Línea divisora mediante un div con un estilo específico -->
+            <div class="divider"></div>
+            <!-- Botón del toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Contenido de la barra de navegación -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/modelos">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/autos">Autos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
+                    </li>
+                </ul>
+                <!-- Botón de login movido a la esquina derecha -->
+                <button class="btn btn-outline-light" (click)="login()" type="button">Login</button>
+            </div>
         </div>
+<<<<<<< Updated upstream
     </div>
 </nav>
 <header class="header">
@@ -63,161 +94,162 @@
             <input type="time" id="hora_devolucion" name="hora_devolucion">
         </div>
         <a href="#" class="btn-11">Reservar</a>
+=======
+    </nav>
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/LogoP.png" class="d-block w-100" style="height: 400px;" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="card text-white bg-dark-transparent">
+                        <div class="card-body">
+                            <h1 class="display-4">¡Se parte de un fantástico viaje!</h1>
+                            <p class="lead">Descubre la comodidad de viajar con Rent-A-Car</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+  
+  
+  <div class="row mt-5">
+    <div class="col-md-6">
+        <img style="padding: 25px;" src="https://media.istockphoto.com/id/528474010/es/foto/recuerdos-de-hacer.jpg?s=612x612&w=0&k=20&c=UMcoCWmqpi2EVYP5nU__6SsJq-cZhHjthEb7IRtXGnA="
+            class="img-fluid rounded-image" alt="Imagen de Recuerdos">
+    </div>
+    <div class="col-md-6" style="padding: 60px 40px;">
+        <h2>Descubre todo lo que tenemos para ti en Rent-A-Car</h2>
+        <p>Rent-A-Car te ofrece un servicio de lujo de renta de autos en Estados como Guerrero, Yucatán, Campeche, Colima, Morelos, Estado de México, Aguascalientes, CDMX, Chihuahua, Veracruz, Sinaloa, Baja California y Baja California Sur, Quintana Roo, Sonora y Durango. ¡Revisa el directorio y reserva!</p>
+    </div>
+</div>
+
+<!-- Sección 3: Tu aliado en movilidad -->
+<div class="row mt-5">
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div>
+            <h2>Tu aliado en movilidad</h2>
+            <p>Sin importar el motivo de tus viajes o el destino, Rent-A-Car cuenta con una amplia variedad de vehículos que se renuevan constantemente para garantizarte una experiencia de viaje cómoda, segura y confiable.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Sección 4: La opción con mayor presencia en México -->
+<div class="row mt-5">
+    <div class="col-md-6" style="padding: 60px 40px;">
+        <h2>La opción con mayor presencia en México</h2>
+        <p>Contamos con más de 170 locaciones ubicadas en las principales ciudades y aeropuertos de México. Nuestro objetivo es estar siempre a tu alcance.</p>
+    </div>
+    <div class="col-md-6">
+        <img style="padding: 25px;" src="https://media.istockphoto.com/id/528474010/es/foto/recuerdos-de-hacer.jpg?s=612x612&w=0&k=20&c=UMcoCWmqpi2EVYP5nU__6SsJq-cZhHjthEb7IRtXGnA=" class="img-fluid rounded-image" alt="Imagen de Presencia en México">
+    </div>
+</div>
+
+<!-- Sección 5: Cuadritos con iconos y texto -->
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card text-center" style="background-color: #e6f7ff;">
+            <div class="card-body">
+                <i class="fas fa-car fa-3x mb-3" style="color: #007bff;"></i>
+                <h5 class="card-title">Tecnología</h5>
+                <p class="card-text">Viaja como lo mereces, nuestros vehículos incluyen tecnología de alto nivel.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center" style="background-color: #e6f7ff;">
+            <div class="card-body">
+                <i class="fas fa-car fa-3x mb-3" style="color: #007bff;"></i>
+                <h5 class="card-title">Flota Renovada</h5>
+                <p class="card-text">Contamos con una flota increible.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center" style="background-color: #e6f7ff;">
+            <div class="card-body">
+                <i class="fas fa-car fa-3x mb-3" style="color: #007bff;"></i>
+                <h5 class="card-title">Reserva Eficaz</h5>
+                <p class="card-text">Reserva en línea y gestiona todos los detalles desde la Web o aplicación móvil.</p>
+            </div>
+        </div>
+>>>>>>> Stashed changes
     </div>
     
       
 </div>
 
 
-<main class="products container" id="lista-1">
-    <h2>Los automoviles mas rentados</h2>
-    <div class="product-content">
+<div class="container mt-5">
+  <div class="card">
+      <div class="card-body">
+          <h2 class="text-center">Descubre nuestras sedes en las ciudades más importantes de todo el mundo</h2>
+          
+          <div class="row mt-3">
+              <!-- México -->
+              <div class="col-md-4">
+                  <h3>México</h3>
+                  <ul>
+                      <li>Ciudad de México</li>
+                      <li>Guadalajara</li>
+                      <li>Monterrey</li>
+                      <li>Puebla</li>
+                      <li>Cancún</li>
+                  </ul>
+              </div>
+              
+              <!-- Estados Unidos -->
+              <div class="col-md-4">
+                  <h3>Estados Unidos</h3>
+                  <ul>
+                      <li>Los Ángeles</li>
+                      <li>Nueva York</li>
+                      <li>Chicago</li>
+                      <li>Miami</li>
+                      <li>Las Vegas</li>
+                  </ul>
+              </div>
+              
+              <!-- España -->
+              <div class="col-md-4">
+                  <h3>España</h3>
+                  <ul>
+                      <li>Madrid</li>
+                      <li>Barcelona</li>
+                      <li>Valencia</li>
+                      <li>Sevilla</li>
+                      <li>Bilbao</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
-        <div class="product">
-            <img src="../../../assets/carro1.png" alt="1">
-            <div class="product-txt">
-                <h2 class="peque">Toyota</h2>
-                <p>Muy bueno</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
+
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-lg-start">
+                <p>&copy; 2024 Rent-A-Car By Indra | Todos los derechos reservados</p>
             </div>
-        </div>
-
-        <div class="product">
-            <img src="../../../assets/carro2.png" alt="1">
-            <div class="product-txt">
-                <h2 class="peque">Toyota</h2>
-                <p>Muy bueno</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
+            <div class="col-lg-6 text-lg-end">
+                <p>
+                    <a href="/alianzas">Alianzas comerciales</a> · 
+                    <a href="/terminos">Términos y Condiciones</a> · 
+                    <a href="/privacidad">Aviso de privacidad</a>
+                </p>
             </div>
-        </div>
-
-        <div class="product">
-            <img src="../../../assets/carro3.png" alt="">
-            <div class="product-txt">
-                <h2 class="peque">Toyota</h2>
-                <p>Muy bueno</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="../../../assets/carro3.png" alt="">
-            <div class="product-txt">
-                <h2 class="peque">JEP</h2>
-                <p>El mas copacto</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="../../../assets/carro2.png" alt="">
-            <div class="product-txt">
-                <h2 class="peque">Toyota</h2>
-                <p>Muy bueno</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="../../../assets/carro1.png" alt="">
-            <div class="product-txt">
-                <h2 class="peque">Toyota</h2>
-                <p>Muy bueno</p>
-                <p class="precio">200$</p>
-                <a href="" class="btn-2">informacion</a>
-            </div>
-        </div>
-
-    </div>
-</main>
-
-
-
-
-
-<section class="blog container">
-    <h2>¿Porque somos los mejores?</h2>
-    <p>MINSAIT</p>
-
-    <div class="blog-content">
-        <div class="blog-1">
-            <img src="assets/images/blog1.jpg" alt="">
-            <h3>Valores</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam corporis veniam excepturi
-                quidem cupiditate, quisquam ipsam deleniti enim? Nemo quo asperiores itaque expedita sapiente quas,
-                vel
-                veritatis tempore commodi.
-            </p>
-        </div>
-
-        <div class="blog-1">
-            <img src="assets/images/blog2.jpg" alt="">
-            <h3>Proposito</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam corporis veniam excepturi
-                quidem cupiditate, quisquam ipsam deleniti enim? Nemo quo asperiores itaque expedita sapiente quas,
-                vel
-                veritatis tempore commodi.
-            </p>
-        </div>
-        <div class="blog-1">
-            <img src="assets/images/blog3.jpg" alt="">
-            <h3>Calidad</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam corporis veniam excepturi
-                quidem cupiditate, quisquam ipsam deleniti enim? Nemo quo asperiores itaque expedita sapiente quas,
-                vel
-                veritatis tempore commodi.
-            </p>
-        </div>
-    </div>
-
-    <a href="#" class="btn-1">Informacion</a>
-</section>
-
-<footer class="footer">
-    <div class="footer-content container">
-        <div class="link">
-            <h3>lorem</h3>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3>lorem</h3>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3>lorem</h3>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-        <div class="link">
-            <h3>lorem</h3>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
         </div>
     </div>
 </footer>
 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

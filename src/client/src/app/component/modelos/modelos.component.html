@@ -1,0 +1,152 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <!-- Imagen ajustada y colocada a la izquierda -->
+        <img src="assets/LogoP.png" alt="Logo Indra" style="width: 150px; height: auto; margin-right: 0px;">
+        <!-- Palabra "Indra" con tipografía diferente y en mayúsculas -->
+        <a class="navbar-brand" routerLink="/">
+            <span style="font-family: Arial, sans-serif; text-transform: uppercase;">INDRA</span>
+        </a>
+        <!-- Línea divisora mediante un div con un estilo específico -->
+        <div class="divider"></div>
+        <!-- Botón del toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Contenido de la barra de navegación -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/ubicaciones">Ciudades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/modelos">Modelos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/autos">Autos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/sucursal">Admin Sucursales</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--MARCAS-->
+<div class=" container form-control">
+    <div class="form-control col-md-4 tr" style="background-color: ghostwhite;">
+        <h1 class="text-center">Marcas</h1>
+        <div >
+            <form class="col-md-4">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Ingresa la marca:</label>
+                    <input type="text" class="form-control" id="marca" name="marca" [(ngModel)]="marca">
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addMarca($event)">Agregar</button>
+            </form>
+        </div>
+        <br>
+        <div  class="row">
+            <h3 class="text-center">Listado de marcas de vehiculos</h3>
+                <div class="mb-3">
+                    <label for="filtroModelo" class="form-label col-md-4">Filtrar por marca:</label>
+                <!--<select class="form-select" id="filtroModelo" name="filtroModelo" [(ngModel)]="filtroModelo" (change)="filtrarModelos()">
+                    <option value="">Todos las marcas de autos</option>
+                    <option *ngFor="let mod of modelos" [value]="mod.marca">{{ mod.marca }}</option>
+                </select>-->
+                </div>
+        </div>
+        <div class="row col-md-6" style="background-color: ghostwhite;">
+            <div style="height: 300px; overflow-y: auto;">
+                <div style="height: 300px; overflow-y: auto;">
+                    <table class="table table-striped table-hover" style="width: 100%">
+                        <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let marca of marcas">
+                                <td>{{ marca.marca }}</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" (click)="cargarMarcaSeleccionada(marca)">
+                                        <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
+                                    </button>
+                                    <button class="btn btn-danger btn-sm"  (click)="deleteMarca(marca && marca._id ? marca._id.toString() : '')">
+                                        <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--MODELOS-->
+<div class=" container form-control">
+    <div class="form-control col-md-4 tr" style="background-color: ghostwhite;">
+        <h1 class="text-center">Modelos</h1>
+        <div >
+            <form class="col-md-4">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Selecciona la marca:</label>
+                    <select class="form-select" id="marca" name="marca" [(ngModel)]="marca" required>
+                        <option value="">Selecciona la marca</option>
+                        <option *ngFor="let m of marc" [value]="m.marca">{{m.marca}}</option>-->
+                    </select>
+                    <label for="modelo" class="form-label">Ingresa el modelo:</label>
+                    <input type="text" class="form-control" id="modelo" name="modelo" [(ngModel)]="modelo">
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addModelo($event)">Agregar</button>
+            </form>
+        </div>
+        <br>
+        <div  class="row">
+            <h3 class="text-center">Listado de modelos de vehiculos</h3>
+                <div class="mb-3">
+                    <label for="filtroModelo" class="form-label col-md-4">Filtrar por marca:</label>
+                <select class="form-select" id="filtroModelo" name="filtroModelo" [(ngModel)]="filtroModelo" (change)="filtrarModelos()">
+                    <option value="">Todos las marcas de autos</option>
+                    <option *ngFor="let mod of modelos" [value]="mod.marca">{{ mod.marca }}</option>
+                </select>
+                </div>
+        </div>
+        <div class="row col-md-6" style="background-color: ghostwhite;">
+            <div style="height: 300px; overflow-y: auto;">
+                <div style="height: 300px; overflow-y: auto;">
+                    <table class="table table-striped table-hover" style="width: 100%">
+                        <thead style="position: sticky; top: 0; background-color: white; z-index: 1;">
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let modelo of (filtroModelo ? modelosFiltrados : modelos)">
+                                <td>{{ modelo.marca }}</td>
+                                <td>{{ modelo.modelo }}</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" (click)="cargarModeloSeleccionado(modelo)">
+                                        <img src="assets/actualizar.png" alt="Actualizar" class="btn-icon" width="24px"> Actualizar
+                                    </button>
+                                    <button class="btn btn-danger btn-sm"  (click)="deleteModelo(modelo && modelo._id ? modelo._id.toString() : '')">
+                                        <img src="assets/eliminar.png" alt="Eliminar" class="btn-icon" width="24px"> Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
